@@ -1,0 +1,49 @@
+import pygame
+import sys
+
+pygame.init()
+
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Моя Pygame Игра")
+
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+
+game_running = True
+clock = pygame.time.Clock()
+
+
+def draw_scene():
+    screen.fill(WHITE)
+    
+    pygame.draw.rect(screen, RED, (100, 100, 50, 50))
+    
+
+    pygame.display.flip()
+
+
+def handle_input():
+    global game_running
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            game_running = False
+
+def update_game():
+    pass
+
+
+
+while game_running:
+    handle_input()
+
+    update_game()
+
+    draw_scene()
+
+    clock.tick(60)
+
+pygame.quit()
+sys.exit()
